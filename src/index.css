@@ -17,7 +17,7 @@ code {
 header {
   display: flex;
   justify-content: space-between;
-  flex-direction: row-reverse;
+  /* flex-direction: row-reverse; */
   border-bottom: 1px solid #f2f2f2;
   padding: 10px 40px;
   min-height: 40px;
@@ -35,6 +35,11 @@ header a:hover {
   color: black;
 }
 
+header .header_logo {
+  color: black;
+  font-weight: 600;
+  font-size: 18px;
+}
 /* footer */
 footer {
   background-color: #f2f2f2;
