@@ -49,7 +49,7 @@ footer {
 }
 
 /* post list */
-.post-list {
+.post_list {
   min-height: 90vh;
   padding: 20px 40px;
   text-align: center;
