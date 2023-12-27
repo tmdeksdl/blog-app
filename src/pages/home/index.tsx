@@ -19,7 +19,7 @@ export default function Home() {
           <div key={index} className="post_box">
             <Link to={`/posts/${index}`}>
               <div className="post_profile_box">
-                <div className="post_profile">이미지</div>
+                <div className="post_profile"></div>
                 <div className="post_author">작가이름</div>
                 <div className="post_date">1999.10.10 로요일</div>
               </div>
