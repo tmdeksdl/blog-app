@@ -16,7 +16,7 @@ export default function Router() {
       <Route path="/posts/:id" element={<PostDetail />}></Route>
       <Route path="/posts/new" element={<PostNew />}></Route>
       <Route path="/posts/edit/:id" element={<PostEdit />}></Route>
-      <Route path="/posts/profile" element={<ProfilePage />}></Route>
+      <Route path="/profile" element={<ProfilePage />}></Route>
       <Route path="/login" element={<LoginPage />}></Route>
       <Route path="/signup" element={<SignupPage />}></Route>
       <Route path="*" element={<Navigate replace to="/" />}></Route>
