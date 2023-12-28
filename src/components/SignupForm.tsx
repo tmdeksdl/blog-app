@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { app } from 'firebaseApp';
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
@@ -9,6 +9,7 @@ export default function SignupForm() {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [passwordConfirm, setPasswordConfirm] = useState<string>('');
+  const nagivate = useNavigate();
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
@@ -16,6 +17,7 @@ export default function SignupForm() {
       await createUserWithEmailAndPassword(auth, email, password);
 
       toast.success('회원가입에 성공했습니다.');
+      nagivate('/');
     } catch (error: any) {
       toast.error(error?.code);
     }
