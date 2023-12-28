@@ -402,3 +402,26 @@ input:checked + .slide_container .nav label {
 .form .form_btn-submit:focus {
   background-color: #1945a4;
 }
+
+/* login form */
+
+.form--lg {
+  min-height: 100px;
+  margin-top: 10px;
+}
+
+.form_title {
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+.form_link {
+  margin-left: 10px;
+  color: gray;
+  text-decoration: none;
+}
+
+.form_link:hover,
+.form_link:focus {
+  color: black;
+}
