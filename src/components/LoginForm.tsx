@@ -60,7 +60,7 @@ export default function LoginForm() {
         <div className="form_block">
           <label htmlFor="password">비밀번호</label>
           <input
-            type="text"
+            type="password"
             name="password"
             id="password"
             required

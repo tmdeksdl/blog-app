@@ -2,7 +2,7 @@ import { initializeApp, FirebaseApp, getApp } from 'firebase/app';
 import 'firebase/auth';
 
 export let app: FirebaseApp;
-// Your web app's Firebase configuration
+
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_API_KEY,
   authDomain: process.env.REACT_APP_AUTH_DOMAIN,
