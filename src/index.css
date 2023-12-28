@@ -425,3 +425,7 @@ input:checked + .slide_container .nav label {
 .form_link:focus {
   color: black;
 }
+
+.form_error {
+  color: red;
+}
