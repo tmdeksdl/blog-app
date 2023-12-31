@@ -85,7 +85,7 @@ export default function SignupForm() {
         <div className="form_block">
           <label htmlFor="password_confirm">비밀번호 확인</label>
           <input
-            type="text"
+            type="password"
             name="password_confirm"
             id="password_confirm"
             required
