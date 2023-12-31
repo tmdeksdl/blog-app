@@ -81,19 +81,27 @@ footer a:hover {
 .black a,
 .black form label,
 .black .post_delete,
+.black .post_edit,
 .black .profile_logout,
 .black .form_title,
 .black .post_title,
 .black .post_author,
 .black .profile_name,
 .black .profile_email,
-.black .post_navigator--active {
+.black .post_navigator--active,
+.black .comment_box {
   color: white;
 }
 
 .black a:hover,
 .black a:focus,
-.black .post_text {
+.black .post_text,
+.black .comment_delete:focus,
+.black .comment_delete:hover,
+.black .post_delete:focus,
+.black .post_delete:hover,
+.black .post_edit:focus,
+.black .post_edit:hover {
   color: lightgray;
 }
 
@@ -515,4 +523,87 @@ input:checked + .slide_container .nav label {
   border-radius: 50%;
   z-index: 999;
   animation: rotation 1s linear infinite;
+}
+
+/* comments */
+
+.comments {
+  width: 100%;
+}
+
+.comments_form label {
+  font-weight: 600;
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.comments_form textarea {
+  min-height: 100px;
+  padding: 10px;
+  font-size: 16px;
+  line-height: 1.5;
+  border-radius: 0.3rem;
+  border: 1px solid gray;
+  display: block;
+  width: 100%;
+  max-width: 680px;
+}
+.comments_form .form_block {
+  margin-top: 10px;
+}
+
+.comments_form .form_btn-submit {
+  width: 100px;
+  height: 36px;
+  font-weight: 500;
+  cursor: pointer;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+.comments_form .form_btn-submit:hover,
+.comments_form .form_btn-submit:focus {
+  background-color: #1945a4;
+}
+.comments_form .form_block-reverse {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.comments_list {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+.comment_box {
+  padding: 12px 0px;
+  border-bottom: 1px solid #f2f2f2;
+}
+.comment_profile-box {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 14px;
+}
+
+.comment_email {
+  font-weight: 500;
+}
+.comment_date {
+  color: gray;
+}
+.comment_delete {
+  color: gray;
+  font-size: 12px;
+  cursor: pointer;
+  text-decoration: underline;
+}
+.comment_delete:hover,
+.comment_delete:focus {
+  color: black;
+}
+
+.comment_text {
+  font-size: 14px;
+  padding-top: 4px;
 }
