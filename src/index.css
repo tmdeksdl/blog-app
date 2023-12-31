@@ -63,6 +63,48 @@ footer a:hover {
   color: black;
 }
 
+.footer_theme-btn {
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+}
+.white {
+  transition: all 0.25s linear;
+  background-color: white;
+}
+.black {
+  transition: all 0.25s linear;
+  background-color: #1e2937;
+  min-height: 100vh;
+}
+
+.black a,
+.black form label,
+.black .post_delete,
+.black .profile_logout,
+.black .form_title,
+.black .post_title,
+.black .post_author,
+.black .profile_name,
+.black .profile_email,
+.black .post_navigator--active {
+  color: white;
+}
+
+.black a:hover,
+.black a:focus,
+.black .post_text {
+  color: lightgray;
+}
+
+.black .form_error {
+  color: #ff6a71;
+}
+.black footer,
+.black header {
+  background-color: #112827;
+}
+
 /* post nagivator */
 .post_navigator {
   display: flex;
@@ -95,7 +137,7 @@ footer a:hover {
 }
 
 .post_box {
-  padding-top: 24px;
+  padding: 24px;
   border-top: 1px solid #f2f2f2;
 }
 
@@ -205,7 +247,7 @@ footer a:hover {
   max-width: 600px;
   text-align: left;
   line-height: 24px;
-  justify-content: center;
+  justify-content: space-between;
   padding: 20px;
 }
 
