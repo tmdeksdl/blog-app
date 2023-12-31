@@ -5,7 +5,6 @@ import { useContext } from 'react';
 
 export default function Header() {
   const context = useContext(ThemeContext);
-  console.log(context);
 
   return (
     <footer className="footer">
