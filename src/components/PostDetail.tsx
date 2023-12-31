@@ -43,6 +43,9 @@ export default function PostDetail() {
               <div className="post_date">{post.createdAt}</div>
             </div>
             <div className="post_util_box">
+              {post?.category && (
+                <div className="post_category">{post?.category}</div>
+              )}
               <div
                 role="presentation"
                 onClick={handleDelete}
