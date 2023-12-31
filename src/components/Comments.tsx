@@ -5,18 +5,11 @@ import { db } from 'firebaseApp';
 import AuthContext from 'context/AuthContext';
 import { toast } from 'react-toastify';
 
-const COMMENTS = [
-  { id: 1, email: 'test1.com', content: 'asdfad', createdAt: '1999-01-01' },
-  { id: 2, email: 'test1.com', content: 'asdfad', createdAt: '1999-01-01' },
-  { id: 3, email: 'test1.com', content: 'asdfad', createdAt: '1999-01-01' },
-  { id: 4, email: 'test1.com', content: 'asdfad', createdAt: '1999-01-01' },
-  { id: 5, email: 'test1.com', content: 'asdfad', createdAt: '1999-01-01' },
-  { id: 6, email: 'test1.com', content: 'asdfad', createdAt: '1999-01-01' },
-];
 interface CommentsProps {
   post: PostProps;
+  getPost: (id: string) => Promise<void>;
 }
-export default function Comments({ post }: CommentsProps) {
+export default function Comments({ post, getPost }: CommentsProps) {
   const onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const {
       target: { name, value },
@@ -53,6 +46,8 @@ export default function Comments({ post }: CommentsProps) {
               second: '2-digit',
             }),
           });
+          // 댓글 추가 후 문서 업데이트
+          await getPost(post.id);
         }
         toast.success('댓글을 달았습니다.');
         setComment('');
@@ -79,16 +74,19 @@ export default function Comments({ post }: CommentsProps) {
         </div>
       </form>
       <div className="comments_list">
-        {COMMENTS?.map((comment) => (
-          <div key={comment.id} className="comment_box">
-            <div className="comment_profile-box">
-              <div className="comment_email">{comment.email}</div>
-              <div className="comment_date">{comment.createdAt}</div>
-              <div className="comment_delete">삭제</div>
+        {post?.comments
+          ?.slice(0)
+          ?.reverse()
+          .map((comment) => (
+            <div key={comment.createdAt} className="comment_box">
+              <div className="comment_profile-box">
+                <div className="comment_email">{comment.email}</div>
+                <div className="comment_date">{comment.createdAt}</div>
+                <div className="comment_delete">삭제</div>
+              </div>
+              <div className="comment_text">{comment?.content}</div>
             </div>
-            <div className="comment_text">{comment?.content}</div>
-          </div>
-        ))}
+          ))}
       </div>
     </div>
   );

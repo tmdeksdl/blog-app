@@ -63,7 +63,7 @@ export default function PostDetail() {
                 {post.content}
               </div>
             </div>
-            <Comments post={post}></Comments>
+            <Comments post={post} getPost={getPost}></Comments>
           </>
         ) : (
           <Loader />
