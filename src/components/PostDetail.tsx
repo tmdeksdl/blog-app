@@ -1,15 +1,17 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { PostProps } from './PostList';
 import { db } from 'firebaseApp';
 import { deleteDoc, doc, getDoc } from 'firebase/firestore';
 import Loader from './Loader';
 import { toast } from 'react-toastify';
 import Comments from './Comments';
+import AuthContext from 'context/AuthContext';
 export default function PostDetail() {
   const params = useParams();
   const [post, setPost] = useState<PostProps | null>(null);
+  const { user } = useContext(AuthContext);
   const navigate = useNavigate();
   const getPost = async (id: string) => {
     if (id) {
@@ -48,16 +50,20 @@ export default function PostDetail() {
                 {post?.category && (
                   <div className="post_category">{post?.category}</div>
                 )}
-                <div
-                  role="presentation"
-                  onClick={handleDelete}
-                  className="post_delete"
-                >
-                  삭제
-                </div>
-                <div className="post_edit">
-                  <Link to={`/posts/edit/${post.id}`}>수정</Link>
-                </div>
+                {post?.email === user?.email && (
+                  <>
+                    <div
+                      role="presentation"
+                      onClick={handleDelete}
+                      className="post_delete"
+                    >
+                      삭제
+                    </div>
+                    <div className="post_edit">
+                      <Link to={`/posts/edit/${post.id}`}>수정</Link>
+                    </div>
+                  </>
+                )}
               </div>
               <div className="post_text post_text--pre-wrap">
                 {post.content}
